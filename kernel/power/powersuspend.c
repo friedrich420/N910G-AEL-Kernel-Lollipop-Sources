@@ -160,8 +160,9 @@ void set_power_suspend_state(int new_state)
 			queue_work(suspend_work_queue, &power_resume_work);
 		}
 		spin_unlock_irqrestore(&state_lock, irqflags);
+	}
 	#ifdef CONFIG_POWERSUSPEND_DEBUG
-	} else {
+	else {
 		pr_info("[POWERSUSPEND] state change requested, but unchanged ?! Ignored !\n");
 	}
 	#endif
@@ -316,5 +317,4 @@ MODULE_AUTHOR("Paul Reioux <reioux@gmail.com> / Jean-Pierre Rasquin <yank555.lu@
 MODULE_DESCRIPTION("power_suspend - A replacement kernel PM driver for"
         "Android's deprecated early_suspend/late_resume PM driver!");
 MODULE_LICENSE("GPL v2");
-
 
